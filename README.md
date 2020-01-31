@@ -52,6 +52,8 @@ void displayDataset(std::vector <std::vector <double >>);
 ```
 Your output should look like this...
 
+![](staff/F1.png)
+
 # Estimator Function
 For estimating the grade, we assume that the grade is a linear function of the above factors. So it can be parameterized by
 
