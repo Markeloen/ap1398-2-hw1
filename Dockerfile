@@ -1,19 +1,27 @@
-# GCC support can be specified at major, minor, or micro version
-# (e.g. 8, 8.2 or 8.2.0).
-# See https://hub.docker.com/r/library/gcc/ for all supported GCC
-# tags from Docker Hub.
-# See https://docs.docker.com/samples/library/gcc/ for more on how to use this image
-FROM gcc:latest
+FROM gcc:9.2.0
 
-# These commands copy your files into the specified directory in the image
-# and set that as the working location
-COPY . /usr/src/myapp
-WORKDIR /usr/src/myapp
+WORKDIR /usr/src/app
 
-# This command compiles your app using GCC, adjust for your source code
-RUN g++ -o myapp main.cpp aphw1.cpp
+RUN apt-get -qq update \
+    && apt-get -qq install --no-install-recommends cmake \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
-# This command runs your application, comment out this line to compile only
-CMD ["./myapp"]
+RUN git clone --depth=1 -b master https://github.com/google/googletest.git
+RUN mkdir googletest/build
 
-LABEL Name=ap2020hw1 Version=0.0.1
+WORKDIR /usr/src/app/googletest/build
+
+RUN cmake .. \
+    && make \
+    && make install \
+    && rm -rf /usr/src/app/googletest
+
+WORKDIR /usr/src/app
+
+COPY . .
+RUN mkdir obj
+
+RUN make
+
+CMD [ "./main" ]
