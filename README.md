@@ -26,7 +26,7 @@ After hours of analysis, we found that grade of a student in this course is effe
 
 As a professional programmer, you're supposed to code something that, by learning from previous students and their grades, estimates grade of a new student (maybe yourself!) by having these factors of him or her!
 
-<img src="staff/MEME.jpg" width="400" />
+<img src="staff/MEME.jpg" width="400" class="center" />
 
 # Importing Data
 Data of previous students is gathered in **AP-Data.csv**. First of all, implement **getData** function such that it gets the path to the data file and returns a vector consisting of vectors of type double for data given. Each member of this returned vector, is itself a vector consisting of the features of a student. In the AP-Data file, each row is the information of a student. The first 6 numbers of each row are the 6 factors told above and the last number is the grade of the student.
