@@ -55,7 +55,7 @@ Your output should look like this...
 # Estimator Function
 For estimating the grade, we assume that the grade is a linear function of the above factors. So it can be parameterized by
 
-$grade(\textbf{x}) = x_0w_0 + x_1w_1 + ... + x_6w_6$
+<img src="http://www.sciweavers.org/tex2img.php?eq=%24grade%28%5Ctextbf%7Bx%7D%29%20%3D%20x_0w_0%20%2B%20x_1w_1%20%2B%20...%20%2B%20x_6w_6%24%0A&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0" align="center" border="0" alt="$grade(\textbf{x}) = x_0w_0 + x_1w_1 + ... + x_6w_6$" width="307" height="19" />
 
 where $x_0$ is the **1** element you took in the first place of each students vector and $x_1$ to $x_6$ are the above factors. For having a reasonable estimation, we must just find appropriate values for w's (weights). Now implement **grade** function. It gets a vector of student features and a vector of weights and returns the estimated grade from the above formula. Prototype is 
 
@@ -66,12 +66,11 @@ double J(std::vector<double>, std::vector<std::vector<double>>);
 #  Finding Appropriate Weights
 It suffices now to find the weights that minimize the cost function so that we can hope to have a good estimator! As you now, to minimize a function, we can start from an arbitrary point and in each step, go in the opposite direction of the gradient at that point. First of all, we must find the partial derivative of the cost function with respect to each weight.
 
-$
-\frac{\partial J}{\partial w_i} = \frac{\partial J}{\partial grade} \frac{\partial grade}{\partial w_i} = \frac{1}{m} \sum_{j=1}^{m} (grade(\textbf{x}^{(j)}) - y^{(j)}) x_i^{(j)}
-$
+<img src="http://www.sciweavers.org/tex2img.php?eq=%5Cfrac%7B%5Cpartial%20J%7D%7B%5Cpartial%20w_i%7D%20%3D%20%5Cfrac%7B%5Cpartial%20J%7D%7B%5Cpartial%20grade%7D%20%5Cfrac%7B%5Cpartial%20grade%7D%7B%5Cpartial%20w_i%7D%20%3D%20%5Cfrac%7B1%7D%7Bm%7D%20%5Csum_%7Bj%3D1%7D%5E%7Bm%7D%20%28grade%28%5Ctextbf%7Bx%7D%5E%7B%28j%29%7D%29%20-%20y%5E%7B%28j%29%7D%29%20x_i%5E%7B%28j%29%7D&bc=White&fc=Black&im=png&fs=18&ff=modern&edit=0" align="center" border="0" alt="\frac{\partial J}{\partial w_i} = \frac{\partial J}{\partial grade} \frac{\partial grade}{\partial w_i} = \frac{1}{m} \sum_{j=1}^{m} (grade(\textbf{x}^{(j)}) - y^{(j)}) x_i^{(j)}" width="577" height="75" />
+
 Now for minimizing the function, we use the following formula.
 
-$w_i := w_i - \alpha \frac{\partial J}{\partial w_i}$
+<img src="http://www.sciweavers.org/tex2img.php?eq=%24w_i%20%3A%3D%20w_i%20-%20%5Calpha%20%5Cfrac%7B%5Cpartial%20J%7D%7B%5Cpartial%20w_i%7D%24&bc=White&fc=Black&im=png&fs=18&ff=mathptmx&edit=0" align="center" border="0" alt="$w_i := w_i - \alpha \frac{\partial J}{\partial w_i}$" width="165" height="40" />
 
 In this relation, $\alpha$ is the step size and is known as **learning rate**. It usually is a small positive constant number less 1 like 0.01 or 0.001. Actually, by selecting a proper learning rate, the above procedure will run iteratively so that our cost function be minimized more and more and we get the appropriate weights.
 
