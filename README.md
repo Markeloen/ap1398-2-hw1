@@ -96,6 +96,7 @@ std::vector<double> train(std::vector<std::vector<double>>, std::vector<double>,
 
 # Displaying Output
 Now implement **displayOutput**. It gets data of previous students and the weight vector obtained from the **train** function. It must print the actual grade and the estimated grade of each student in each row in a beautiful manner like the following figure.
+
 <img src="staff/F2.PNG" width="800" />
 
 # Saving and Loading Weights
