@@ -26,6 +26,8 @@ After hours of analysis, we found that grade of a student in this course is effe
 
 As a professional programmer, you're supposed to code something that, by learning from previous students and their grades, estimates grade of a new student (maybe yourself!) by having these factors of him or her!
 
+![](staff/MEME.jpg)
+
 # Importing Data
 Data of previous students is gathered in **AP-Data.csv**. First of all, implement **getData** function such that it gets the path to the data file and returns a vector consisting of vectors of type double for data given. Each member of this returned vector, is itself a vector consisting of the features of a student. In the AP-Data file, each row is the information of a student. The first 6 numbers of each row are the 6 factors told above and the last number is the grade of the student.
 
@@ -52,7 +54,7 @@ void displayDataset(std::vector <std::vector <double >>);
 ```
 Your output should look like this...
 
-![](staff/F1.png)
+![](staff/F1.PNG)
 
 # Estimator Function
 For estimating the grade, we assume that the grade is a linear function of the above factors. So it can be parameterized by
@@ -94,6 +96,7 @@ std::vector<double> train(std::vector<std::vector<double>>, std::vector<double>,
 
 # Displaying Output
 Now implement **displayOutput**. It gets data of previous students and the weight vector obtained from the **train** function. It must print the actual grade and the estimated grade of each student in each row in a beautiful manner like the following figure.
+![](staff/F2.PNG)
 
 # Saving and Loading Weights
 Write **Save** and **Load** functions to be able to save and load the weights vector you got from the **train** function. **Save** gets the weights vector and a name and saves the weights in a file with given name. **Load** gets the name of the file and return a vector containing the weights.
@@ -106,3 +109,5 @@ double predict(std::vector<double>, std::vector<double>);
 ```
 # main File
 You must not alter the main file at all. Just write all your codes in the **aphw1.cpp** and **aphw1.h**. Good luck!
+
+![](staff/MEME2.jpg)
