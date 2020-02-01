@@ -59,24 +59,37 @@ Your output should look like this...
 # Estimator Function
 For estimating the grade, we assume that the grade is a linear function of the above factors. So it can be parameterized by
 
-<img src="http://www.sciweavers.org/tex2img.php?eq=%24grade%28%5Ctextbf%7Bx%7D%29%20%3D%20x_0w_0%20%2B%20x_1w_1%20%2B%20...%20%2B%20x_6w_6%24%0A&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0" align="center" border="0" alt="$grade(\textbf{x}) = x_0w_0 + x_1w_1 + ... + x_6w_6$" width="307" height="19" />
+<img src="staff/eqn1.png" width="300" />
 
-where $x_0$ is the **1** element you took in the first place of each students vector and $x_1$ to $x_6$ are the above factors. For having a reasonable estimation, we must just find appropriate values for w's (weights). Now implement **grade** function. It gets a vector of student features and a vector of weights and returns the estimated grade from the above formula. Prototype is 
+where x_0 is the **1** element you took in the first place of each students vector and x_1 to x_6 are the above factors. For having a reasonable estimation, we must just find appropriate values for w's (weights). Now implement **grade** function. It gets a vector of student features and a vector of weights and returns the estimated grade from the above formula. Prototype is 
 
 ``` c++
+double grade(std::vector <double >, std::vector <double >);
+```
+
+# Cost Function
+By having data of previous students, we form the following cost function.
+
+<img src="staff/eqn2.png" width="300" />
+
+**m** is the number of students in the dataset, $\textbf{x}^{(i)}$ is the vector of features correspondeing to the $i^{th}$ student **y^{(i)}** is the grade of the $i^{th}$ student. As you can see from this function, if you estimate grades properly, this function will get closer and closer to zero. Conversely, if your estimation isn't good enough, the cost function would blow up. So by minimizing this function and finding appropriate weights (w's) we can hope to have a good estimator. Isn't that brilliant?! 
+
+Now, implement **J** function such that it gets the weights vector and the vector of data (returned from getData function) and returns the cost function computed from the above formula with the following prototype.
+
+```c++
 double J(std::vector<double>, std::vector<std::vector<double>>);
 ```
 
 #  Finding Appropriate Weights
 It suffices now to find the weights that minimize the cost function so that we can hope to have a good estimator! As you now, to minimize a function, we can start from an arbitrary point and in each step, go in the opposite direction of the gradient at that point. First of all, we must find the partial derivative of the cost function with respect to each weight.
 
-<img src="http://www.sciweavers.org/tex2img.php?eq=%5Cfrac%7B%5Cpartial%20J%7D%7B%5Cpartial%20w_i%7D%20%3D%20%5Cfrac%7B%5Cpartial%20J%7D%7B%5Cpartial%20grade%7D%20%5Cfrac%7B%5Cpartial%20grade%7D%7B%5Cpartial%20w_i%7D%20%3D%20%5Cfrac%7B1%7D%7Bm%7D%20%5Csum_%7Bj%3D1%7D%5E%7Bm%7D%20%28grade%28%5Ctextbf%7Bx%7D%5E%7B%28j%29%7D%29%20-%20y%5E%7B%28j%29%7D%29%20x_i%5E%7B%28j%29%7D&bc=White&fc=Black&im=png&fs=18&ff=modern&edit=0" align="center" border="0" alt="\frac{\partial J}{\partial w_i} = \frac{\partial J}{\partial grade} \frac{\partial grade}{\partial w_i} = \frac{1}{m} \sum_{j=1}^{m} (grade(\textbf{x}^{(j)}) - y^{(j)}) x_i^{(j)}" width="577" height="75" />
+<img src="staff/eqn3.png" width="300" />
 
 Now for minimizing the function, we use the following formula.
 
-<img src="http://www.sciweavers.org/tex2img.php?eq=%24w_i%20%3A%3D%20w_i%20-%20%5Calpha%20%5Cfrac%7B%5Cpartial%20J%7D%7B%5Cpartial%20w_i%7D%24&bc=White&fc=Black&im=png&fs=18&ff=mathptmx&edit=0" align="center" border="0" alt="$w_i := w_i - \alpha \frac{\partial J}{\partial w_i}$" width="165" height="40" />
+<img src="staff/eqn4.png" width="300" />
 
-In this relation, $\alpha$ is the step size and is known as **learning rate**. It usually is a small positive constant number less 1 like 0.01 or 0.001. Actually, by selecting a proper learning rate, the above procedure will run iteratively so that our cost function be minimized more and more and we get the appropriate weights.
+In this relation, \alpha is the step size and is known as **learning rate**. It usually is a small positive constant number less 1 like 0.01 or 0.001. Actually, by selecting a proper learning rate, the above procedure will run iteratively so that our cost function be minimized more and more and we get the appropriate weights.
 
 Now you're supposed to implement the **train** function to do the above procedure. Arguments of the train function are
 
