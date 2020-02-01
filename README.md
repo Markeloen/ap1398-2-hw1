@@ -70,9 +70,9 @@ double grade(std::vector <double >, std::vector <double >);
 # Cost Function
 By having data of previous students, we form the following cost function.
 
-<img src="staff/eqn2.png" width="300" />
+<img src="staff/eqn2.png" width="400" />
 
-**m** is the number of students in the dataset, $\textbf{x}^{(i)}$ is the vector of features correspondeing to the $i^{th}$ student **y^{(i)}** is the grade of the $i^{th}$ student. As you can see from this function, if you estimate grades properly, this function will get closer and closer to zero. Conversely, if your estimation isn't good enough, the cost function would blow up. So by minimizing this function and finding appropriate weights (w's) we can hope to have a good estimator. Isn't that brilliant?! 
+**m** is the number of students in the dataset, **x**^(i) is the vector of features correspondeing to the i-th student **y^(i)** is the grade of the $i^{th}$ student. As you can see from this function, if you estimate grades properly, this function will get closer and closer to zero. Conversely, if your estimation isn't good enough, the cost function would blow up. So by minimizing this function and finding appropriate weights (w's) we can hope to have a good estimator. Isn't that brilliant?! 
 
 Now, implement **J** function such that it gets the weights vector and the vector of data (returned from getData function) and returns the cost function computed from the above formula with the following prototype.
 
@@ -83,11 +83,11 @@ double J(std::vector<double>, std::vector<std::vector<double>>);
 #  Finding Appropriate Weights
 It suffices now to find the weights that minimize the cost function so that we can hope to have a good estimator! As you now, to minimize a function, we can start from an arbitrary point and in each step, go in the opposite direction of the gradient at that point. First of all, we must find the partial derivative of the cost function with respect to each weight.
 
-<img src="staff/eqn3.png" width="300" />
+<img src="staff/eqn3.png" width="600" />
 
 Now for minimizing the function, we use the following formula.
 
-<img src="staff/eqn4.png" width="300" />
+<img src="staff/eqn4.png" width="250" />
 
 In this relation, \alpha is the step size and is known as **learning rate**. It usually is a small positive constant number less 1 like 0.01 or 0.001. Actually, by selecting a proper learning rate, the above procedure will run iteratively so that our cost function be minimized more and more and we get the appropriate weights.
 
