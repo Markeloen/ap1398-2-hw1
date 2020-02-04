@@ -8,6 +8,8 @@ Advanced Programming - Homework 1
 <h2>
 Dr.Amir Jahanshahi
 </h2>
+<h3>
+Deadline: Friday, 2 Esfand - 23:00
 </center>
 
 #  Introduction
