@@ -8,6 +8,8 @@ Advanced Programming - Homework 1
 <h2>
 Dr.Amir Jahanshahi
 </h2>
+<h3>
+Deadline: Friday, 2 Esfand - 23:00
 </center>
 
 #  Introduction
@@ -64,7 +66,7 @@ For estimating the grade, we assume that the grade is a linear function of the a
 where x_0 is the **1** element you took in the first place of each students vector and x_1 to x_6 are the above factors. For having a reasonable estimation, we must just find appropriate values for w's (weights). Now implement **grade** function. It gets a vector of student features and a vector of weights and returns the estimated grade from the above formula. Prototype is 
 
 ``` c++
-double grade(std::vector <double >, std::vector <double >);
+double grade(std::vector <double > w, std::vector <double > x);
 ```
 
 # Cost Function
