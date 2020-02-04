@@ -113,7 +113,11 @@ Now implement **displayOutput**. It gets data of previous students and the weigh
 <img src="staff/F2.PNG" width="800" />
 
 # Saving and Loading Weights
-Write **Save** and **Load** functions to be able to save and load the weights vector you got from the **train** function. **Save** gets the weights vector and a name and saves the weights in a file with given name. **Load** gets the name of the file and return a vector containing the weights.
+Write **Save** and **Load** functions to be able to save and load the weights vector you got from the **train** function. **Save** gets the weights vector and a name and saves the weights in a file with given name in the *csv* format. **Load** gets the name of the file and return a vector containing the weights.
+```c++
+void save(std::vector<double>, const char*);
+std::vector<double> load(const char*);
+```
 
 # Prediction
 Last step is in front of you. Implement **predict** function such that it gets features of a new student and the weights obtained from the **train** function and predicts his or her grade. For a hard working or lazy student your function may estimate grades more than 20 or less than 0. What would you do to solve this?
