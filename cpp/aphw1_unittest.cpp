@@ -24,7 +24,7 @@ TEST(APHW1Test, costFunctionTest)
     std::vector<std::vector<double>> data{getData("AP-Data.csv")};
     std::vector<double> w (7, 1);
     std::cout << "CostFunction Test here!" << std::endl;
-    EXPECT_TRUE((48 < J(w, data)) && (49 > J(w, data)));
+    EXPECT_TRUE((45 < J(w, data)) && (52 > J(w, data)));
 }
 TEST(APHW1Test, trainFunctionTest)
 {
