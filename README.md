@@ -126,12 +126,12 @@ std::vector<double> load(const char*);
 ```
 
 # Prediction
-Last step is in front of you. Implement **predict** function such that it gets features of a new student and the weights obtained from the **train** function and predicts his or her grade. Your function should get features from user in a proper messages.
+Last step is in front of you. Implement **predict** function such that it gets features of a new student and the weights obtained from the **train** function and predicts his or her grade. Your function should get features from user in proper messages.
 
 For a hard working or lazy student your function may estimate grades more than 20 or less than 0. What would you do to solve this?
 
 ```c++
-double predict(std::vector<double>, std::vector<double>);
+void predict(std::vector<double>, std::vector<double>);
 ```
 # main File
 You must not alter the main file at all. Just write all your codes in the **aphw1.cpp** and **aphw1.h**. Good luck!
