@@ -39,9 +39,11 @@ For example, one of the rows of this file is
 
 So this row is about a student who had a good attention in classes and coded about 10 hours a week (not counting his time on homeworks!) but had little time reading and so on. Finally he got a high grade! 
 
-In you're returning vector, each element is itself a vector representing each student. In the vector of each student you must enter a **1** in the first place and after that the 6 parameters and the grade. So your vector for the above student should be like the following.
+In your returning vector, each element is itself a vector representing each student. In the vector of each student you must enter a **1** in the first place and after that the 6 parameters and the grade. So your vector for the above student should be like the following.
 
 1, 0.9, 0.9, 10, 3, 0.4, 0.6, 15
+
+Don't forget to divide the 2 features of hours (feature3 and feature4) by 100 to normalize them. It will make your convergence way too fast!
 
 Prototype for your function is
 ``` c++
