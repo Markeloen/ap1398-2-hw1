@@ -108,7 +108,7 @@ Now you're supposed to implement the **train** function to do the above procedur
 In the end it must return the final weights it has obtained.
 
 ``` c++
-std::vector<double> train(std::vector<std::vector<double>>, std::vector<double>, double, size_t, double, size_t);
+std::vector<double> train(std::vector<std::vector<double>>, std::vector<double>, double, size_t, double, bool);
 ```
 
 # Displaying Output
