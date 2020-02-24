@@ -131,7 +131,7 @@ Last step is in front of you. Implement **predict** function such that it gets f
 For a hard working or lazy student your function may estimate grades more than 20 or less than 0. What would you do to solve this?
 
 ```c++
-void predict(std::vector<double>, std::vector<double>);
+void predict(std::vector<double>);
 ```
 # main File
 You must not alter the main file at all. Just write all your codes in the **aphw1.cpp** and **aphw1.h**. Good luck!
